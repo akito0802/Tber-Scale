@@ -20,14 +20,33 @@
       font-size: 2.5rem;
       text-shadow: 0 0 10px #ff69b4;
     }
+    
     .selector-container {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin: 1rem 0;
       flex-wrap: wrap;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00faff;
+    
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
     }
+    
     select {
+      background-color: #000;
+      color: #00faff;
+      border: 2px solid #00faff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00faff, 0 0 20px #00faff inset;
+      transition: all 0.3s ease;
+    
       font-size: 1.2rem;
       padding: 0.5rem;
     }
@@ -65,7 +84,7 @@
     </div>
   </div>
   <div>
-    <img id="fretboardImage" src="C_major_fretboard.png" alt="Fretboard Image" />
+    <img id="fretboardImage" src="C_major_fretboard.png" />
   </div>
   <script>
     const keySelect = document.getElementById('keySelect');
