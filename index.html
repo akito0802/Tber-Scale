@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tber Scale - C Major</title>
+    <title>Tber Scale - Switch Scales</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -28,15 +28,35 @@
         h1 {
             margin-top: 1rem;
         }
+        select {
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Tber Scale</h1>
-        <p>C Major Scale on Guitar Fretboard</p>
+        <p>Select a Scale to View</p>
     </header>
     <div class="container">
-        <img src="c_major_fretboard.png" alt="C Major Fretboard">
+        <label for="scaleSelect">Choose a Scale:</label>
+        <select id="scaleSelect">
+            <option value="c_major_fretboard.png">C Major</option>
+            <option value="g_major_fretboard.png">G Major</option>
+            <option value="d_major_fretboard.png">D Major</option>
+        </select>
+        <br>
+        <img id="fretboardImage" src="c_major_fretboard.png" alt="Fretboard">
     </div>
+    <script>
+        const select = document.getElementById('scaleSelect');
+        const image = document.getElementById('fretboardImage');
+
+        select.addEventListener('change', function () {
+            image.src = this.value;
+        });
+    </script>
 </body>
 </html>
