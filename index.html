@@ -158,8 +158,23 @@
 
   <script>
     const fretboard = document.getElementById('fretboardImage');
+    let isZoomed = false;
+
     fretboard.addEventListener('click', () => {
-      fretboard.classList.toggle('zoomed');
+      const src = fretboard.getAttribute('src');
+      const is6f = src.includes('_6f');
+
+      if (!isZoomed) {
+        const zoomSrc = src.replace('.png', '_6f.png');
+        fretboard.setAttribute('src', zoomSrc);
+        fretboard.classList.add('zoomed');
+        isZoomed = true;
+      } else {
+        const baseSrc = src.replace('_6f.png', '.png');
+        fretboard.setAttribute('src', baseSrc);
+        fretboard.classList.remove('zoomed');
+        isZoomed = false;
+      }
     });
   </script>
 </body>
