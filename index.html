@@ -165,12 +165,12 @@
       const is6f = src.includes('_6f');
 
       if (!isZoomed) {
-        const zoomSrc = src.replace('.png', '_6f.png');
+        const zoomSrc = src.replace('.png','_dot4f_shifted.png');
         fretboard.setAttribute('src', zoomSrc);
         fretboard.classList.add('zoomed');
         isZoomed = true;
       } else {
-        const baseSrc = src.replace('_6f.png', '.png');
+        const baseSrc = src.replace('_dot4f_shifted.png  ', '.png');
         fretboard.setAttribute('src', baseSrc);
         fretboard.classList.remove('zoomed');
         isZoomed = false;
