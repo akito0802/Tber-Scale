@@ -3,42 +3,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tber Scale - Major Scales</title>
+    <title>Tber Scale - Neon City</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
-            background: linear-gradient(to top, #f5f5f5, #d7e1ec);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://images.unsplash.com/photo-1604537466573-1ec12c35df75?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
             text-align: center;
         }
         header {
-            padding: 1rem;
-            background-color: #333;
-            color: white;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 8px #0ff, 0 0 12px #0ff;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-radius: 16px;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+        select {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: #111;
+            color: #0ff;
+            font-weight: bold;
+            box-shadow: 0 0 10px #0ff;
         }
         img {
             max-width: 100%;
             height: auto;
-            margin: 2rem 0;
-        }
-        .container {
-            padding: 1rem;
-        }
-        select {
-            font-size: 1rem;
-            padding: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #0ff;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Tber Scale</h1>
-        <p>Select a Major Scale to View</p>
+        <p>Choose your scale - Shine in the Neon Night</p>
     </header>
     <div class="container">
-        <label for="scaleSelect">Choose a Scale:</label>
+        <label for="scaleSelect">Scale:</label><br>
         <select id="scaleSelect">
             <option value="c_major_fretboard.png">C Major</option>
             <option value="g_major_fretboard.png">G Major</option>
@@ -48,7 +68,6 @@
             <option value="b_major_fretboard.png">B Major</option>
             <option value="f_major_fretboard.png">F Major</option>
         </select>
-        <br>
         <img id="fretboardImage" src="c_major_fretboard.png" alt="Fretboard">
     </div>
     <script>
