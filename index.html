@@ -1,182 +1,112 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Tber Scale Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tber - Church Mode Selector</title>
+  <link rel="icon" href="icon.png" />
   <style>
     body {
-      background-image: url('A_vibrant_digital_illustration_showcases_a_cartoon.png');
+      background-image: url("background.png");
       background-size: cover;
-      background-position: center;
+      font-family: sans-serif;
       color: white;
-      font-family: Arial, sans-serif;
       text-align: center;
-      padding: 20px;
-    }
-    
-    
-    h1 {
-      color: #ff69b4;
-      font-size: 2.5rem;
-      text-shadow:
-        0 0 4px #ffffff,
-        0 0 8px #ffffff,
-        0 0 12px #ffffff,
-        0 0 16px #ff69b4,
-        0 0 20px #ff69b4;
-    
-      color: #ff69b4;
-      font-size: 2.5rem;
-      text-shadow:
-        0 0 4px #fff,
-        0 0 8px #fff,
-        0 0 12px #fff,
-        0 0 16px #00faff,
-        0 0 20px #00faff;
-    
-      color: #ff69b4;
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px #ff69b4;
-    }
-    
-    .selector-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem 0;
-      flex-wrap: wrap;
-      background-color: rgba(0, 0, 0, 0.4);
       padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #00faff;
-    
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem 0;
-      flex-wrap: wrap;
     }
-    
+    h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 8px white;
+    }
     select {
-      background-color: #000;
-      color: #00faff;
-      border: 2px solid #00faff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00faff, 0 0 20px #00faff inset;
-      transition: all 0.3s ease;
-    
       font-size: 1.2rem;
-      padding: 0.5rem;
+      padding: 0.3rem;
+      margin: 0.5rem;
     }
     img {
-      max-width: 100%;
-      height: auto;
-      border: 4px solid #fff;
-      box-shadow: 0 0 15px #0ff;
-      background-color: white;
+      width: 100%;
+      max-width: 720px;
       margin-top: 1rem;
     }
-  
-    .neon-header-box {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      border: 2px solid #fff;
-      border-radius: 12px;
-      box-shadow:
-        0 0 10px #fff,
-        0 0 20px #0ff,
-        0 0 30px #0ff;
-      margin-bottom: 1rem;
-    }
-    
-    .zoomed {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: auto;
-      height: 90vh;
-      max-width: 90vw;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      background-color: #000;
-      padding: 10px;
-      border: 4px solid #0ff;
-      box-shadow: 0 0 25px #0ff;
-    }
-    </style>
-
-
+  </style>
 </head>
 <body>
-  <div class="neon-header-box"><h1>Tber Scale Viewer</h1></div>
-  <div class="selector-container">
-    <div>
-      <label for="keySelect">Key</label><br>
-      <select id="keySelect">
-        <option value="C">C</option>
-        <option value="D">D</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="G">G</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-      </select>
-    </div>
-    <div>
-      <label for="scaleSelect">Scale Type</label><br>
-      <select id="scaleSelect">
-        <option value="major">Major</option>
-        <option value="major_pentatonic">Major Pentatonic</option>
-        <option value="natural_minor">Natural Minor</option>
-        <option value="harmonic_minor">Harmonic Minor</option>
-        <option value="melodic_minor">Melodic Minor</option>
-        <option value="major_blues">Major Blues</option>
-        <option value="lydian">Lydian (4)</option>
-      </select>
-    </div>
-  </div>
-  <div>
-    <img id="fretboardImage" src="C_major_fretboard.png" />
-  </div>
-  <script>
-    const keySelect = document.getElementById('keySelect');
-    const scaleSelect = document.getElementById('scaleSelect');
-    const image = document.getElementById('fretboardImage');
+  <h1>Tber - スケール選択</h1>
 
-    function updateImage() {
-      const key = keySelect.value;
-      const scale = scaleSelect.value;
-      image.src = `${key}_${scale}_fretboard.png`;
+  <label for="key">キー:</label>
+  <select id="key">
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="G">G</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+  </select>
+
+  <label for="scale">スケール:</label>
+  <select id="scale">
+    <option value="major">メジャー</option>
+    <option value="major_pentatonic">メジャーペンタトニック</option>
+    <option value="church">チャーチモード</option>
+  </select>
+
+  <label for="mode" id="modeLabel" style="display:none;">モード:</label>
+  <select id="mode" style="display:none;">
+    <option value="ionian">1. Ionian</option>
+    <option value="dorian">2. Dorian</option>
+    <option value="phrygian">3. Phrygian</option>
+    <option value="lydian">4. Lydian</option>
+    <option value="mixolydian">5. Mixolydian</option>
+    <option value="aeolian">6. Aeolian</option>
+    <option value="locrian">7. Locrian</option>
+  </select>
+
+  <div>
+    <img id="fretboard" src="" alt="Fretboard" />
+  </div>
+
+  <script>
+    const key = document.getElementById("key");
+    const scale = document.getElementById("scale");
+    const mode = document.getElementById("mode");
+    const modeLabel = document.getElementById("modeLabel");
+    const fretboard = document.getElementById("fretboard");
+
+    function updateVisibility() {
+      if (scale.value === "church") {
+        mode.style.display = "inline-block";
+        modeLabel.style.display = "inline-block";
+      } else {
+        mode.style.display = "none";
+        modeLabel.style.display = "none";
+      }
     }
 
-    keySelect.addEventListener('change', updateImage);
-    scaleSelect.addEventListener('change', updateImage);
-  </script>
-
-  <script>
-    const fretboard = document.getElementById('fretboardImage');
-    let isZoomed = false;
-
-    fretboard.addEventListener('click', () => {
-      const src = fretboard.getAttribute('src');
-      const is6f = src.includes('_6f');
-
-      if (!isZoomed) {
-        const zoomSrc = src.replace('.png', '_6f.png');
-        fretboard.setAttribute('src', zoomSrc);
-        fretboard.classList.add('zoomed');
-        isZoomed = true;
+    function updateFretboard() {
+      let imgName = "";
+      if (scale.value === "church") {
+        imgName = key.value + "_" + mode.value + "_fretboard_dot12f.png";
+        fretboard.src = "images_12f/" + imgName;
       } else {
-        const baseSrc = src.replace('_6f.png', '.png');
-        fretboard.setAttribute('src', baseSrc);
-        fretboard.classList.remove('zoomed');
-        isZoomed = false;
+        imgName = key.value + "_" + scale.value + "_fretboard_dot12f.png";
+        fretboard.src = "images_12f/" + imgName;
       }
+    }
+
+    key.addEventListener("change", updateFretboard);
+    scale.addEventListener("change", () => {
+      updateVisibility();
+      updateFretboard();
     });
+    mode.addEventListener("change", updateFretboard);
+
+    // 初期状態
+    key.value = "C";
+    scale.value = "major";
+    updateVisibility();
+    updateFretboard();
   </script>
 </body>
-
 </html>
