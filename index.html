@@ -134,7 +134,7 @@
         <option value="harmonic_minor">Harmonic Minor</option>
         <option value="melodic_minor">Melodic Minor</option>
         <option value="major_blues">Major Blues</option>
-        <option value="minor_blues">Minor Blues</option>
+        <option value="ionian">Ionian (1)</option>
       </select>
     </div>
   </div>
@@ -165,12 +165,12 @@
       const is6f = src.includes('_6f');
 
       if (!isZoomed) {
-        const zoomSrc = src.replace('.png','_dot4f_shifted.png');
+        const zoomSrc = src.replace('.png', '_6f.png');
         fretboard.setAttribute('src', zoomSrc);
         fretboard.classList.add('zoomed');
         isZoomed = true;
       } else {
-        const baseSrc = src.replace('_dot4f_shifted.png  ', '.png');
+        const baseSrc = src.replace('_6f.png', '.png');
         fretboard.setAttribute('src', baseSrc);
         fretboard.classList.remove('zoomed');
         isZoomed = false;
