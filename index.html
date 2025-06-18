@@ -2,111 +2,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tber - Church Mode Selector</title>
-  <link rel="icon" href="icon.png" />
-  <style>
-    body {
-      background-image: url("background.png");
-      background-size: cover;
-      font-family: sans-serif;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    h1 {
-      font-size: 2rem;
-      text-shadow: 0 0 8px white;
-    }
-    select {
-      font-size: 1.2rem;
-      padding: 0.3rem;
-      margin: 0.5rem;
-    }
-    img {
-      width: 100%;
-      max-width: 720px;
-      margin-top: 1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Tber Scale Viewer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Tber - スケール選択</h1>
-
-  <label for="key">キー:</label>
-  <select id="key">
-    <option value="C">C</option>
-    <option value="D">D</option>
-    <option value="E">E</option>
-    <option value="F">F</option>
-    <option value="G">G</option>
-    <option value="A">A</option>
-    <option value="B">B</option>
-  </select>
-
-  <label for="scale">スケール:</label>
-  <select id="scale">
-    <option value="major">メジャー</option>
-    <option value="major_pentatonic">メジャーペンタトニック</option>
-    <option value="church">チャーチモード</option>
-  </select>
-
-  <label for="mode" id="modeLabel" style="display:none;">モード:</label>
-  <select id="mode" style="display:none;">
-    <option value="ionian">1. Ionian</option>
-    <option value="dorian">2. Dorian</option>
-    <option value="phrygian">3. Phrygian</option>
-    <option value="lydian">4. Lydian</option>
-    <option value="mixolydian">5. Mixolydian</option>
-    <option value="aeolian">6. Aeolian</option>
-    <option value="locrian">7. Locrian</option>
-  </select>
-
-  <div>
-    <img id="fretboard" src="" alt="Fretboard" />
-  </div>
-
-  <script>
-    const key = document.getElementById("key");
-    const scale = document.getElementById("scale");
-    const mode = document.getElementById("mode");
-    const modeLabel = document.getElementById("modeLabel");
-    const fretboard = document.getElementById("fretboard");
-
-    function updateVisibility() {
-      if (scale.value === "church") {
-        mode.style.display = "inline-block";
-        modeLabel.style.display = "inline-block";
-      } else {
-        mode.style.display = "none";
-        modeLabel.style.display = "none";
-      }
-    }
-
-    function updateFretboard() {
-      let imgName = "";
-      if (scale.value === "church") {
-        imgName = key.value + "_" + mode.value + "_fretboard_dot12f.png";
-        fretboard.src = "images_12f/" + imgName;
-      } else {
-        imgName = key.value + "_" + scale.value + "_fretboard_dot12f.png";
-        fretboard.src = "images_12f/" + imgName;
-      }
-    }
-
-    key.addEventListener("change", updateFretboard);
-    scale.addEventListener("change", () => {
-      updateVisibility();
-      updateFretboard();
-    });
-    mode.addEventListener("change", updateFretboard);
-
-    // 初期状態
-    key.value = "C";
-    scale.value = "major";
-    updateVisibility();
-    updateFretboard();
-  </script>
+    <header>
+        <h1 class="neon-header">Tber</h1>
+    </header>
+    <main>
+        <div class="scale-selectors">
+            <select id="key-select">
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select>
+            <select id="category-select">
+                <option value="major">Major</option>
+                <option value="minor">Minor</option>
+                <option value="church">Church Mode</option>
+            </select>
+            <select id="scale-select">
+                <option value="major">Major</option>
+            </select>
+        </div>
+        <div id="fretboard">
+            <img src="images/C_major.png" alt="C Major Scale">
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
